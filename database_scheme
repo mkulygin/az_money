@@ -1,0 +1,38 @@
+CREATE TABLE `az_accounts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `balance` double(8,2) NOT NULL,
+  `dealer_id` int(10) unsigned NOT NULL,
+  `status_` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `az_accounts_dealer_id_unique` (`dealer_id`),
+  KEY `az_accounts_status__index` (`status_`),
+  CONSTRAINT `az_accounts_dealer_id_foreign` FOREIGN KEY (`dealer_id`) REFERENCES `az_dealers` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `az_dealers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `expired_datetime` datetime DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `az_dealers_email_unique` (`email`),
+  KEY `az_dealers_status__index` (`status_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `az_transactions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `action` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sum` double(8,2) NOT NULL,
+  `account_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
