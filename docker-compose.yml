@@ -1,0 +1,30 @@
+web:
+ image: nginx:latest
+ ports:
+        - "8080:80"
+ volumes:
+        - ./html/azazamoney/:/html
+        - ./site.conf:/etc/nginx/conf.d/site.conf
+ links:
+        - php
+ 
+php:
+    image: php:7-fpm
+    volumes:
+        - ./html/azazamoney/:/html
+    links:
+        - mysql
+
+mysql:
+  image: mysql
+  volumes:
+    - ./data-mysql:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: mm644
+    MYSQL_USER: django
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: azazamoney
+  ports:
+    - "3306:3306"
+
+

@@ -1,0 +1,88 @@
+{
+	"variables": [],
+	"info": {
+		"name": "azazamoney_api",
+		"_postman_id": "fca5388a-af65-2751-bed2-36e0ed1c44d1",
+		"description": "Simple api for Dealers (monthly access for special materials), their Accounts (balance), and transactions history.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New account for a dealer",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/newaccount/{dealer_id}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "New account for a dealer, return new_account_id.\nDealer_id must be created."
+			},
+			"response": []
+		},
+		{
+			"name": "New dealer",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/newdealer/{email}/{password}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Register new dealer.\nEmail and password are needed.\nEmail could not be dublicated or existed."
+			},
+			"response": []
+		},
+		{
+			"name": "Add money to account",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/addmoney/{account_id}/{sum}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Add money to the dealer's account.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Make a recurrent payment for 1 month by account_id.",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/reccurentpayment/{account_id}/{sum}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Extend monthly subscription for 1 month for the {sum} price.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Check current balance of the account by account_id",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/getbalance/{account_id}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Check current balance of the account by dealer_id",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/getbalancedealer/{dealer_id}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "\n"
+			},
+			"response": []
+		},
+		{
+			"name": "List all transactions for account_id",
+			"request": {
+				"url": "http://localhost:8000/api/v1/noauth/transactions/{account_id}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "\n"
+			},
+			"response": []
+		}
+	]
+}
