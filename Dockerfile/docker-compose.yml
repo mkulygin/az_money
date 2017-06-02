@@ -3,22 +3,22 @@ web:
  ports:
         - "8080:80"
  volumes:
-        - ./html/azazamoney/:/html
-        - ./site.conf:/etc/nginx/conf.d/site.conf
+        - ../html/azazamoney/:/html
+        - ../site.conf:/etc/nginx/conf.d/site.conf
  links:
         - php
  
 php:
     image: php:7-fpm
     volumes:
-        - ./html/azazamoney/:/html
+        - ../html/azazamoney/:/html
     links:
         - mysql
 
 mysql:
   image: mysql
   volumes:
-    - ./data-mysql:/var/lib/mysql
+    - ../data-mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: mm644
     MYSQL_USER: django
