@@ -13,7 +13,7 @@ class az_accounts extends Model
      *
      * @var float
      */
-    protected $balance;
+    public $balance;
     protected $table = 'az_accounts';
     public $timestamps = true;
 

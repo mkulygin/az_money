@@ -14,7 +14,7 @@ class az_transactions extends Model
      * @var float
      */
     protected $balance;
-    protected $account_id;
+    public $account_id;
     protected $table = 'az_transactions';
     public $timestamps = true;
 

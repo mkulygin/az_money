@@ -15,9 +15,9 @@ class az_dealers extends Model
      */
     protected $balance = 0;
 	protected $table = 'az_dealers';
-	protected $email;
-	protected $name;
-	protected $password;
+    public $email;
+    public $name;
+    public $password;
 	protected $status_;
 	protected $expired_datetime;
     public $timestamps = true;
