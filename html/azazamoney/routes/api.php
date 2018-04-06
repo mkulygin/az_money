@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/v1/noauth/newaccount/{dealer_id}/', function($dealer_id)
+Route::post('/v1/noauth/newaccount/{dealer_id}/', function($dealer_id)
 {
 	
 	$err = "false";
@@ -29,7 +29,7 @@ Route::get('/v1/noauth/newaccount/{dealer_id}/', function($dealer_id)
 		$account->save();
 		$LastInsertId = $account->id;
 		DB::commit();
-		$status = 200;
+		$status = 201;
     }
 	catch(exception $e){
 		DB::rollback();
@@ -44,7 +44,7 @@ Route::get('/v1/noauth/newaccount/{dealer_id}/', function($dealer_id)
             ));
 });
 
-Route::get('/v1/noauth/newdealer/{email}/{password}', function($email, $password)
+Route::post('/v1/noauth/newdealer/{email}/{password}', function($email, $password)
 {
 	$err = "false";
 	$LastInsertId = 0;
@@ -58,7 +58,7 @@ Route::get('/v1/noauth/newdealer/{email}/{password}', function($email, $password
 		$account->save();
 		$LastInsertId = $account->id;
 		DB::commit();
-		$status = 200;
+		$status = 201;
 	}
 	catch(exception $e){
 		DB::rollback();
@@ -73,7 +73,7 @@ Route::get('/v1/noauth/newdealer/{email}/{password}', function($email, $password
             ));
 });
 
-Route::get('/v1/noauth/addmoney/{account_id}/{sum}', function($account_id, $sum)
+Route::post('/v1/noauth/addmoney/{account_id}/{sum}', function($account_id, $sum)
 {
 	$err = "false";
 	$LastInsertId = 0;
@@ -92,7 +92,7 @@ Route::get('/v1/noauth/addmoney/{account_id}/{sum}', function($account_id, $sum)
 		$account->save();
 		$tr->save();
 		DB::commit();
-		$status = 200;
+		$status = 201;
 		$balance = $account->balance;
     }
 	catch(exception $e){
@@ -108,7 +108,7 @@ Route::get('/v1/noauth/addmoney/{account_id}/{sum}', function($account_id, $sum)
             ));
 });
 
-Route::get('/v1/noauth/reccurentpayment/{account_id}/{sum}', function($account_id, $sum)
+Route::post('/v1/noauth/reccurentpayment/{account_id}/{sum}', function($account_id, $sum)
 {
 	
 	$err = "false";
@@ -138,7 +138,7 @@ Route::get('/v1/noauth/reccurentpayment/{account_id}/{sum}', function($account_i
 		$dealer->save();
 		$tr->save();
 		DB::commit();
-		$status = 200;
+		$status = 201;
 		$balance = $account->balance;
     }
 	catch(exception $e){

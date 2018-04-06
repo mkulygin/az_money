@@ -11,7 +11,7 @@
 			"name": "New account for a dealer",
 			"request": {
 				"url": "http://localhost:8000/api/v1/noauth/newaccount/{dealer_id}",
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {},
 				"description": "New account for a dealer, return new_account_id.\nDealer_id must be created."
@@ -22,7 +22,7 @@
 			"name": "New dealer",
 			"request": {
 				"url": "http://localhost:8000/api/v1/noauth/newdealer/{email}/{password}",
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {},
 				"description": "Register new dealer.\nEmail and password are needed.\nEmail could not be dublicated or existed."
@@ -33,7 +33,7 @@
 			"name": "Add money to account",
 			"request": {
 				"url": "http://localhost:8000/api/v1/noauth/addmoney/{account_id}/{sum}",
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {},
 				"description": "Add money to the dealer's account.\n"
@@ -44,7 +44,7 @@
 			"name": "Make a recurrent payment for 1 month by account_id.",
 			"request": {
 				"url": "http://localhost:8000/api/v1/noauth/reccurentpayment/{account_id}/{sum}",
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {},
 				"description": "Extend monthly subscription for 1 month for the {sum} price.\n"
